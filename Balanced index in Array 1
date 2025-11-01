@@ -1,0 +1,33 @@
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        int n=sc.nextInt();
+        int[] nums=new int[n];
+        for(int i=0;i<n;i++){
+            nums[i]=sc.nextInt();
+        }
+        int ans=-1;
+        for(int i=1;i<n;i++){
+            int sum1=0;
+            int sum2=0;
+            for(int j=0;j<i;j++){
+                sum1+=nums[j];
+            }
+            for(int k=n-1;k>i;k--){
+                sum2+=nums[k];
+            }
+            if(sum1==sum2){
+               ans=i;
+                break;
+            }
+        }
+        System.out.print(ans);
+    }
+}
